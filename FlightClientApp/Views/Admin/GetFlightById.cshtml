@@ -1,0 +1,100 @@
+@model flightclientapp.Models.Flights
+
+@{
+    ViewData["Title"] = "GetFlightById";
+    Layout="~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Flight Details</h1>
+
+<div>
+    @* <h4>Flights</h4> *@
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Flightid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Flightid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fsource)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fsource)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fdestination)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fdestination)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NoOfSeats)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NoOfSeats)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArrAirportId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArrAirportId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeptAirportId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeptAirportId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FarrTerminal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FarrTerminal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FdeptTerminal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FdeptTerminal)
+        </dd>
+    </dl>
+</div>
+<div>
+    @* @Html.ActionLink("Edit", "Edit", new { id = Model.Flightid }) | *@
+    <form>
+        <a asp-action="ShowAllFlights"><input type="button" value="Back" class="btn btn-primary" /></a>
+        @* <a asp-action="Index">Back to List</a> *@
+    </form>
+    @* <a asp-action="GetFlights">Back to List</a> *@
+</div>
+
+@* <div>
+    @Html.ActionLink("Edit", "EditFlight", new { id = Model.Flightid }) |
+    <a asp-action="ShowAllFlights">Back to List</a>
+</div> *@

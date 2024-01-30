@@ -1,0 +1,68 @@
+@model IEnumerable<flightclientapp.Models.Flights>
+
+@{
+    ViewData["Title"] = "ShowFlights";
+}
+
+<h1>Flights</h1>
+<br>
+<h3>Flights from <font color = "blue">@ViewBag.source</font> ------> <font color="blue">@ViewBag.destination</font>  --on--  <font color="blue">@ViewBag.date</font></h3>
+<br>
+
+@* <p>
+    <a asp-action="Create">Create New</a>
+</p> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fsource)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fdestination)
+            </th>
+            <th>
+                Departure Time
+            </th>
+            <th>
+                Arrival Time
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fsource)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fdestination)
+            </td>
+            <td>
+                @Html.Raw(item.DepartureTime.ToString("HH:mm tt"))
+            </td>
+            <td>
+                @Html.Raw(item.ArrivalTime.ToString("HH:mm tt"))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.ActionLink("Book", "BookNow", new { id = item.Flightid }) |
+                @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

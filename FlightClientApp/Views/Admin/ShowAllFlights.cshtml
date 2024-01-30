@@ -1,0 +1,103 @@
+@model IEnumerable<flightclientapp.Models.Flights>
+
+@{
+    ViewData["Title"] = "ShowAllFlights";
+    Layout="~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>All Flights</h1>
+<br>
+<p>
+    <a asp-action="AddFlight"><input type="button" value="Add New Flight" class="btn btn-primary" /></a>
+    @* <a asp-action="AddFlights">Add New Flight</a> *@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Flightid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fsource)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fdestination)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.ArrivalTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfSeats)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.ArrAirportId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeptAirportId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FarrTerminal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FdeptTerminal)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flightid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fsource)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fdestination)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.ArrivalTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfSeats)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.ArrAirportId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptAirportId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FarrTerminal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FdeptTerminal)
+            </td> *@
+            <td>
+                @Html.ActionLink("Edit", "EditFlight", new { id=item.Flightid }) |
+                @Html.ActionLink("Details", "GetFlightById", new { id=item.Flightid }) |
+                @Html.ActionLink("Delete", "DeleteFlight", new { id=item.Flightid })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

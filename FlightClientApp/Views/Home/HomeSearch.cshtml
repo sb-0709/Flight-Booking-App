@@ -1,0 +1,72 @@
+@model FlightProjApi.Models.HomeSearch
+
+@{
+    ViewData["Title"] = "HomeSearch";
+}
+
+<h1>Search For Flights</h1>
+<br>
+<p style="color: red;">
+    @ViewBag.mess
+</p>
+
+@* <h4>HomeSearch</h4> *@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="HomeSearch">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Fsource" class="control-label"></label>
+                <select id="selectlist1" asp-for="Fsource" class="form-control" />
+                    <option value="1">--</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                </select>
+                <span asp-validation-for="Fsource" class="text-danger"></span>
+            </div>  
+            <br>          
+            <div class="form-group">
+                <label asp-for="Fdestination" class="control-label"></label>
+                <select id="selectlist1" asp-for="Fdestination" class="form-control" />
+                    <option value="1">--</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                </select>
+                <span asp-validation-for="Fdestination" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" type="date" min="@DateTime.Now.ToString("MM/dd/yyyy")"/>
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <label asp-for="NoOfPass" class="control-label"></label>
+                <input asp-for="NoOfPass" class="form-control" type="number"/>
+                <span asp-validation-for="NoOfPass" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,83 @@
+@model FlightProjApi.Models.Passenger
+
+@{
+    ViewData["Title"] = "PassengerDetails";
+}
+
+<h1>Passenger Details</h1>
+
+@* <h4>Passenger</h4> *@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PassengerDetails">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <div class="form-group">
+                <label asp-for="Pid" class="control-label"></label>
+                <input asp-for="Pid" class="form-control" />
+                <span asp-validation-for="Pid" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="Pfname" class="control-label"></label>
+                <input asp-for="Pfname" class="form-control" />
+                <span asp-validation-for="Pfname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Plname" class="control-label"></label>
+                <input asp-for="Plname" class="form-control" />
+                <span asp-validation-for="Plname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pemail" class="control-label"></label>
+                <input asp-for="Pemail" class="form-control" />
+                <span asp-validation-for="Pemail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNo" class="control-label"></label>
+                <input asp-for="PhoneNo" class="form-control" />
+                <span asp-validation-for="PhoneNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paddress" class="control-label"></label>
+                <input asp-for="Paddress" class="form-control" />
+                <span asp-validation-for="Paddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeatNo" class="control-label"></label>
+                <input asp-for="SeatNo" class="form-control" />
+                <span asp-validation-for="SeatNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Food" class="control-label"></label>
+                <select asp-for="Food" class="form-control" />
+                    <option value="--"></option>
+                    <option value="Veg">Yes (Veg)</option>
+                    <option value="NV">Yes (Non-Veg)</option>
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="Food" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <table cellspacing = "50">
+                    <tr>
+                        <td>
+                            <input type="submit" value="Book" class="btn btn-primary" />
+                        </td>
+                        <td style="margin:0 20">
+                            <a asp-controller="Home" asp-action="ShowFlights"><input type="button" value="Back" class="btn btn-primary" /></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

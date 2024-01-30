@@ -1,0 +1,131 @@
+@model flightclientapp.Models.Flights
+
+@{
+    ViewData["Title"] = "EditFlight";
+    Layout="~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit Flight</h1>
+
+@* <h4>Flights</h4> *@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditFlight">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <div class="form-group">
+                <label asp-for="Flightid" class="control-label"></label>
+                <input asp-for="Flightid" class="form-control" />
+                <span asp-validation-for="Flightid" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="Fname" class="control-label"></label>
+                <input asp-for="Fname" class="form-control" autocomplete="on"/>
+                <span asp-validation-for="Fname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fsource" class="control-label"></label>
+                <select asp-for="Fsource" class="form-control" autocomplete="on"/>
+                    <option value="1">--</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                </select>
+                <span asp-validation-for="Fsource" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fdestination" class="control-label"></label>
+                <select asp-for="Fdestination" class="form-control" autocomplete="on"/>
+                    <option value="1">--</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                </select>
+                <span asp-validation-for="Fdestination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArrivalTime" class="control-label"></label>
+                <input asp-for="ArrivalTime" class="form-control" autocomplete="on"/>
+                <span asp-validation-for="ArrivalTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartureTime" class="control-label"></label>
+                <input asp-for="DepartureTime" class="form-control" autocomplete="on"/>
+                <span asp-validation-for="DepartureTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rate" class="control-label"></label>
+                <input asp-for="Rate" class="form-control" autocomplete="on"/>
+                <span asp-validation-for="Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoOfSeats" class="control-label"></label>
+                <input asp-for="NoOfSeats" class="form-control" autocomplete="on"/>
+                <span asp-validation-for="NoOfSeats" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArrAirportId" class="control-label"></label>
+                <select asp-for="ArrAirportId" class="form-control" autocomplete="on"/>
+                    <option value="1">--</option>
+                    <option value="DEL">DEL</option>
+                    <option value="MAA">MAA</option>
+                    <option value="BOM">BOM</option>
+                    <option value="GOI">GOI</option>
+                    <option value="JAI">JAI</option>
+                    <option value="BLR">BLR</option>
+                </select>
+                <span asp-validation-for="ArrAirportId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeptAirportId" class="control-label"></label>
+                <select asp-for="DeptAirportId" class="form-control" autocomplete="on"/>
+                    <option value="1">--</option>
+                    <option value="DEL">DEL</option>
+                    <option value="MAA">MAA</option>
+                    <option value="BOM">BOM</option>
+                    <option value="GOI">GOI</option>
+                    <option value="JAI">JAI</option>
+                    <option value="BLR">BLR</option>
+                </select>
+                <span asp-validation-for="DeptAirportId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FarrTerminal" class="control-label"></label>
+                <input asp-for="FarrTerminal" class="form-control" autocomplete="on"/>
+                <span asp-validation-for="FarrTerminal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FdeptTerminal" class="control-label"></label>
+                <input asp-for="FdeptTerminal" class="form-control" autocomplete="on"/>
+                <span asp-validation-for="FdeptTerminal" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <table cellspacing = "50">
+                    <tr>
+                        <td>
+                            <input type="submit" value="Edit" class="btn btn-primary" />
+                        </td>
+                        <td>
+                            <a asp-action="ShowAllFlights"><input type="button" value="Back" class="btn btn-primary" /></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+@* <div>
+    <a asp-action="ShowAllFlights">Back to List</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
